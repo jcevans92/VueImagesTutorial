@@ -4,16 +4,21 @@
             Image Storage
         </a>
         <div class="right menu">
-            <a class="ui item">
-            Logout
+            <a class="ui item" href="#" @click="login">
+                Login
             </a>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'; // maps actions from modules
+
 export default {
-    name: 'Appheader'
+    name: 'Appheader',
+    methods: {
+        ...mapActions(['login'])
+    } 
 };
 </script>
 
