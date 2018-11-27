@@ -3,8 +3,20 @@
         <a class="active item" href="/">
             Image Storage
         </a>
+
         <div class="right menu">
-            <a class="ui item" href="#" @click="login">
+            <div class="horizontal" v-if="isLoggedIn">
+                <a class="item" >
+                    Galleries
+                </a>
+                <a class="item">
+                    Upload
+                </a>
+                <a class="item" @click="logout">
+                    Logout
+                </a>
+            </div>
+            <a v-else class="ui item" href="#" @click="login">
                 Login
             </a>
         </div>
@@ -12,18 +24,24 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'; // maps actions from modules
+import { mapActions, mapGetters } from 'vuex'; // maps actions from modules
 
 export default {
     name: 'Appheader',
+    computed: {
+        ...mapGetters(['isLoggedIn'])
+    },
     methods: {
-        ...mapActions(['login'])
-    } 
+        ...mapActions(['login', 'logout'])
+    }
 };
 </script>
 
 <style scoped>
-
+.horizontal {
+    display:flex;
+    flex-direction: row;
+}
 </style>
 
 
