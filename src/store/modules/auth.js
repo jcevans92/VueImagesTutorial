@@ -28,7 +28,7 @@ const actions = {
     logout: ({ commit }) => {
         commit('setToken', null);
         // Remove from localStorage to kill session
-        window.localStorage.setItem('imgur_token', null);
+        window.localStorage.setItem('imgur_token', '');
     }
 };
 
