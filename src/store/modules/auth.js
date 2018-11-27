@@ -1,5 +1,6 @@
 import api from '../../api/imgur';
 import qs from 'qs';
+import { router } from '../../main';
 
 const state = {
     token: window.localStorage.getItem('imgur_token')
@@ -19,8 +20,10 @@ const actions = {
     finalizeLogin: ({ commit }, hash) => {
         // Start extracting access token
         const hashObject = qs.parse(hash.replace('#', ''));
-        
         commit('setToken', hashObject.access_token);
+
+        // Lets navigate to main page now.
+        router.push('/');
     },
     logout: ({ commit }) => {
         commit('setToken', null);

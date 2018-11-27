@@ -16,7 +16,7 @@
                     Logout
                 </a>
             </div>
-            <a v-else class="ui item" href="#" @click="login">
+            <a v-else class="ui item" @click="login">
                 Login
             </a>
         </div>
