@@ -22,6 +22,23 @@ export default {
                 Authorization: `Bearer ${token}`
             }
         });
+    },
+    uploadImages(token, images) {
+        const promises = Array.from(images).map(image => {
+            // create imge as formdata
+            const formData = new FormData();
+            formData.append('image', image);
+
+            // Now post to imgur
+            return axios.post(`${ROOT_URL}/3/image`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+        });
+
+        // Waits for every upload request to complete
+        return Promise.all(promises);
     }
 
 };

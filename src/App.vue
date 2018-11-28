@@ -1,7 +1,9 @@
 <template>
   <div>
     <AppHeader></AppHeader>
-    <router-view></router-view> <!-- When vue-router matches a route, puts the component here -->
+    <div class="ui container">
+      <router-view></router-view> <!-- When vue-router matches a route, puts the component here -->
+    </div>
   </div>
 </template>
 
